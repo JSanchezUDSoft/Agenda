@@ -11,7 +11,8 @@ public class AgendaNormal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VentanaPrincipal vp = new VentanaPrincipal();
+        //unica instancia
+        VentanaPrincipal vp = Singleton.getVp();
         vp.setVisible(true);
     }
     
