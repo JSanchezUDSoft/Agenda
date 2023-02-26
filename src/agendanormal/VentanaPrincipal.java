@@ -19,6 +19,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         CrearModelo();
       
     }
+    
+    public void cargarTabla(){
+        Agregar a = Singleton.getAg();
+        Object o[] = null;
+        for(int i=0;i<a.agendaNormal.size();i++){
+            Contacto cto=(Contacto) a.agendaNormal.get(i);   
+            M.addRow(o);
+            M.setValueAt(cto.getNombre(), i, 0);
+            M.setValueAt(cto.getNumero(), i, 1);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -146,7 +157,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        this.dispose();    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        Consultar co = new Consultar();
+        co.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -208,7 +221,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
       
     DefaultTableModel M;
     
-    private void CrearModelo(){
+    public void CrearModelo(){
         M=(new DefaultTableModel(
          null,new String[]{
             "Nombre","  Numero"}){});
